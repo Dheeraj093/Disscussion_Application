@@ -1,15 +1,53 @@
-// PostList.js
 import React, { useEffect, useState } from 'react';
 import PostCard from './PostCard';
 import axios from 'axios';
 import { useSelector } from 'react-redux';
+
+const containerStyle = {
+  marginTop: '4rem',
+  width: '80%',  
+  margin: '0 auto',  
+};
+
+const inputPostStyle = { 
+   border: '1px solid #ced4da', 
+   backgroundColor: '#bae5d5', 
+   borderRadius: '0.25rem', 
+   padding: '1rem', 
+   marginBottom:'30px',
+   border:'2px solid #6a5acd'
+}
+
+const inputStyle = {
+  marginBottom: '0.5rem',
+  width: '100%',
+  padding: '0.375rem 0.75rem',
+  fontSize: '1rem',
+  lineHeight: '1.5',
+  color: '#495057',
+  backgroundColor: '#fff',
+  backgroundClip: 'padding-box',
+  border: '1px solid #ced4da',
+  borderRadius: '0.25rem',
+};
+
+const buttonStyle = {
+  backgroundColor: '#28a745',
+  color: '#fff',
+  border: 'none',
+  padding: '0.5rem 1rem',
+  fontSize: '1rem',
+  lineHeight: '1.5',
+  borderRadius: '0.25rem',
+  cursor: 'pointer',
+};
 
 const PostList = () => {
   const [posts, setPosts] = useState([]);
   const [newPostTitle, setNewPostTitle] = useState('');
   const [newPostContent, setNewPostContent] = useState('');
   const loggedInUser = useSelector((state) => state.user.user);
-  console.log("loggedInUser",loggedInUser)
+
   useEffect(() => {
     const fetchPosts = async () => {
       try {
@@ -37,7 +75,7 @@ const PostList = () => {
         content: newPostContent,
       });
       setPosts((prevPosts) => [response.data.post, ...prevPosts]);
-       
+
       setNewPostTitle('');
       setNewPostContent('');
     } catch (error) {
@@ -46,28 +84,26 @@ const PostList = () => {
   };
 
   return (
-    <div className="container mt-4">
-       
-      <div className="mb-4 p-3 border bg-light rounded">
+    <div style={containerStyle}>
+      <div style={inputPostStyle}>
         <input
           type="text"
           placeholder="Title"
           value={newPostTitle}
           onChange={(e) => setNewPostTitle(e.target.value)}
-          className="form-control mb-2"
+          style={inputStyle}
         />
         <textarea
           placeholder="Content"
           value={newPostContent}
           onChange={(e) => setNewPostContent(e.target.value)}
-          className="form-control mb-2"
+          style={inputStyle}
         />
-        <button onClick={handlePostSubmit} className="btn btn-success">
+        <button onClick={handlePostSubmit} style={buttonStyle}>
           Post
         </button>
       </div>
 
-      
       {posts.map((post) => (
         <PostCard key={post._id} post={post} />
       ))}

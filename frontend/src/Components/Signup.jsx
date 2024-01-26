@@ -75,11 +75,12 @@ const styles = {
     maxWidth: '400px',
     margin: 'auto',
     padding: '20px',
-    backgroundColor: '#ffffff',
+    backgroundColor: '#98fb98',
     boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
     borderRadius: '8px',
     marginTop: '100px',
     fontFamily: 'Arial, sans-serif',
+    border: '1px solid black',
   },
   formGroup: {
     marginBottom: '15px',

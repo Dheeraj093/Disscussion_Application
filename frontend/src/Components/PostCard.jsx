@@ -26,7 +26,7 @@ const PostCard = ({ post }) => {
   return (
     <div className="card mb-4" style={styles.postCard}>
        
-      <div className="card-header bg-light" style={styles.userNameContainer}>
+      <div className="card-header" style={styles.userNameContainer}>
         {user && <h3>{user.name}</h3>}
       </div>
 
@@ -38,7 +38,7 @@ const PostCard = ({ post }) => {
       </div>
 
        
-      <div className="card-footer bg-light" style={styles.commentsContainer}>
+      <div className="card-footer" style={styles.commentsContainer}>
         <Comments postID={post._id} />
       </div>
     </div>
@@ -49,15 +49,20 @@ const styles = {
   postCard: {
     borderRadius: '10px',
     boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+    border:'2px solid #800080',
+    backgroundColor:'#cefff1'
   },
   userNameContainer: {
     borderBottom: '1px solid #ddd',
     padding: '10px',
     display: 'flex',
     justifyContent: 'space-between',
+    backgroundColor:'#3fc5f0'
   },
   postContentContainer: {
     marginBottom: '20px',
+    backgroundColor:'#42dee1',
+    borderBottom: '2px solid #1d556f'
   },
   commentsContainer: {
     borderRadius: '0 0 10px 10px',

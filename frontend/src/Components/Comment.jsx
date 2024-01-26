@@ -9,11 +9,19 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: 10px;
-  background-color: #f9f9f9;
+  background-color: #aedadd;
   padding: 15px;
   border-radius: 8px;
   border: 1px solid #ddd;
+  margin:10px;
 `;
+
+const CommentContainer = styled.div`
+   border: 1px solid #3fc5f0;
+   border-radius: 8px;
+    background-color: #ace7ef;
+   padding:10px;
+`
 
 const CommentHeader = styled.div`
   display: flex;
@@ -57,6 +65,7 @@ const Comment = ({ comment, isComment = true }) => {
 
   return (
     <Container>
+     <CommentContainer>
       <CommentHeader>
         <strong>{user.name}</strong>
         <span>
@@ -66,6 +75,7 @@ const Comment = ({ comment, isComment = true }) => {
         </span>
       </CommentHeader>
       <CommentText>{comment.content}</CommentText>
+      </CommentContainer>
       {isComment && <Reply commentID={comment._id} />}
     </Container>
   );

@@ -3,6 +3,26 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { logout } from '../Config/userReducer';
 
+const navbarStyle = {
+  backgroundColor: '#708090',
+  padding: '20px',
+  color: '#fff',
+  marginLeft:'-10px',
+  marginRight:'-10px'
+};
+
+const spanStyle = {
+  marginRight: '10px',
+};
+
+const buttonStyle = {
+  backgroundColor: '#a0522d',
+  color: '#fff',
+  border: '1px solid #fff',
+  padding: '4px 10px',
+  cursor: 'pointer',
+};
+
 const Navbar = () => {
   const loggedInUser = useSelector((state) => state.user.user);
   const dispatch = useDispatch();
@@ -11,17 +31,16 @@ const Navbar = () => {
   const handleLogout = () => {
     dispatch(logout());
     localStorage.clear();
-    navigate('/login'); 
+    navigate('/login');
   };
-  return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
-      <div className="container-fluid">
-        
-        <span className="navbar-text">Welcome, {loggedInUser.user.name}</span>
 
-        <div className="collapse navbar-collapse justify-content-end">
-          
-          <button className="btn btn-outline-danger" onClick={handleLogout}>
+  return (
+    <nav style={navbarStyle}>
+      <div>
+        <span style={{ ...spanStyle, backgroundColor: '#708090' }}>Welcome, {loggedInUser.user.name}</span>
+
+        <div style={{ float: 'right' }}>
+          <button style={buttonStyle} onClick={handleLogout}>
             Logout
           </button>
         </div>

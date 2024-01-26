@@ -23,7 +23,7 @@ function App() {
   }, [loggedInUser]);
 
   return (
-    <div>
+    <div className='container-fluid'>
       <BrowserRouter>
         <Routes>
           <Route
