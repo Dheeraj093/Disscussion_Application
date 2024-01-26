@@ -1,4 +1,3 @@
-// Login.js
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -15,7 +14,7 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/user/loginUser', { email });
+      const response = await axios.post('https://discussionforum.onrender.com/user/loginUser', { email });
       console.log('OTP send successful:', response.data);
       setOtpSent(true);
     } catch (error) {
@@ -26,7 +25,7 @@ const Login = () => {
   const handleOtpVerification = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/user/verify', { email, otp });
+      const response = await axios.post('https://discussionforum.onrender.com/user/verify', { email, otp });
       console.log('Login successful:', response.data);
       dispatch(setUser(response.data)); 
       localStorage.setItem('userInfo', JSON.stringify(response.data));

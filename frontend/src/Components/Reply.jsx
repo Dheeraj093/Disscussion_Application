@@ -86,7 +86,7 @@ const Reply = ({ commentID, isReply = false }) => {
   useEffect(() => {
     const fetchReplies = async () => {
       try {
-        const res = await axios.post(`http://localhost:5000/reply/getAllRepliesAtComment`, {
+        const res = await axios.post(`https://discussionforum.onrender.com/reply/getAllRepliesAtComment`, {
           headers: {
             Authorization: `${loggedInUser.token}`,
           },
@@ -108,7 +108,7 @@ const Reply = ({ commentID, isReply = false }) => {
       return;
     }
     try {
-      const res = await axios.post(`http://localhost:5000/reply/replyToComment`, {
+      const res = await axios.post(`https://discussionforum.onrender.com/reply/replyToComment`, {
         headers: {
           Authorization: `${loggedInUser.token}`,
         },

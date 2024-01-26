@@ -16,19 +16,18 @@ const Register = () => {
   const handleSignUp = async(e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/user/registerUser', {email,name});
+      const response = await axios.post('https://discussionforum.onrender.com/user/registerUser', {email,name});
       console.log('OTP send successful:', response.data);
       setOtpSent(true);
     } catch (error) {
       console.error('OTP send failed:', error.response.data);
     }
-    // setOtpSent(true);
   };
 
   const handleOtpVerification = async(e) => {
     e.preventDefault();
      try {
-      const response = await axios.post('http://localhost:5000/user/verify', {email,otp});
+      const response = await axios.post('https://discussionforum.onrender.com/user/verify', {email,otp});
       console.log('Register successful:', response.data);
       dispatch(setUser(response.data)); 
       localStorage.setItem("userInfo", JSON.stringify(response.data));

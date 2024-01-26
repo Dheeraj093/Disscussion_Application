@@ -9,7 +9,7 @@ const PostCard = ({ post }) => {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const response = await axios.post(`http://localhost:5000/user/${post.userID}`, {
+        const response = await axios.post(`https://discussionforum.onrender.com/user/${post.userID}`, {
           headers: {
            Authorization: `${loggedInUser.token}`,
           },

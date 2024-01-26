@@ -36,7 +36,7 @@ const Comment = ({ comment, isComment = true }) => {
     const fetchUser = async () => {
       try {
         if(comment.userID){
-          const response = await axios.post(`http://localhost:5000/user/${comment.userID}`, {
+          const response = await axios.post(`https://discussionforum.onrender.com/user/${comment.userID}`, {
           headers: {
             Authorization: `${loggedInUser.token}`,
           },

@@ -12,7 +12,7 @@ const Comments = ({ postID }) => {
   useEffect(() => {
     const fetchComments = async () => {
       try {
-        const res = await axios.post(`http://localhost:5000/comment/getAllCommentsAtPost`, {
+        const res = await axios.post(`https://discussionforum.onrender.com/comment/getAllCommentsAtPost`, {
           headers: {
             Authorization: `${loggedInUser.token}`,
           },
@@ -34,7 +34,7 @@ const Comments = ({ postID }) => {
       return;
     }
     try {
-      const res = await axios.post(`http://localhost:5000/comment/commentAtPost`, {
+      const res = await axios.post(`https://discussionforum.onrender.com/comment/commentAtPost`, {
         headers: {
           Authorization: `${loggedInUser.token}`,
         },

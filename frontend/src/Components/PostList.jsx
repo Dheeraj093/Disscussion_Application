@@ -13,7 +13,7 @@ const PostList = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await axios.post('http://localhost:5000/post/getAllPosts', {
+        const response = await axios.post('https://discussionforum.onrender.com/post/getAllPosts', {
           headers: {
             Authorization: `${loggedInUser.token}`,
           },
@@ -29,7 +29,7 @@ const PostList = () => {
 
   const handlePostSubmit = async () => {
     try {
-      const response = await axios.post('http://localhost:5000/post/createPost', {
+      const response = await axios.post('https://discussionforum.onrender.com/post/createPost', {
         headers: {
           Authorization: `${loggedInUser.token}`,
         },
